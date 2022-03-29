@@ -36,6 +36,11 @@ def find_rank(driver, term):
             else:
                 rank = "*NOT FOUND*"
     
+    #highlight all search matches
+    matches = driver.find_elements_by_class_name("g")
+    for match in matches:
+        driver.execute_script('[].forEach.call(document.getElementsByClassName("g"), function(v,i,a) {if(v.getElementsByTagName("a")[0].href.toLowerCase().includes("facedrivesupply")){v.style.background="yellow";}});')
+    
     return rank
     
 def run():
