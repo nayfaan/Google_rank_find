@@ -24,11 +24,11 @@ def find_rank(driver, term):
         
         results = driver.find_element_by_id("res")
         
-        if target_site in results.text():
+        if target_site in results.text:
             if not all_page_no:
                 rank = 1
             else:
-                rank = all_page_no.find_element_by_class_name("YyVfkd").text()
+                rank = all_page_no.find_element_by_class_name("YyVfkd").text
                 
         else:
             if next_pg:
@@ -50,10 +50,12 @@ def run():
     driver.get(google_url)
     
     try:
-        input("Found on: " + str(find_rank(driver, term)) + "\nPress enter to continue...")
+        input("\nFound on: " + str(find_rank(driver, term)) + "\nPress enter to continue...")
     except:
         print(traceback.format_exc())
     finally:
+        print()
+        print()
         driver.close()
 
 if __name__ == "__main__":
