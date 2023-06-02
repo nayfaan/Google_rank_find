@@ -2,11 +2,12 @@ import services.startDriver
 import os
 import traceback
 
-global target_site
-target_site = "facedrivesupply"
-
 def find_rank(driver, term):
-    search_bar = driver.find_element_by_css_selector('input[name="q"]')
+    
+    f = open("input/target.txt", "r")
+    target_site = f.read()
+    
+    search_bar = driver.find_element_by_css_selector('textarea[name="q"]')
     search_bar.send_keys(term + "\n")
     
     rank = None
